@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  appointment_date: 2024-08-07
+  appointment_time: 2024-08-07 19:36:26
+  customer: one
+  attendant: one
+
+two:
+  customer_name: MyString
+  appointment_date: 2024-08-07
+  appointment_time: 2024-08-07 19:36:26
+  customer: two
+  attendant: two
