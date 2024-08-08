@@ -1,0 +1,108 @@
+openapi: 3.0.1
+info:
+  title: API de Salão de Beleza
+  version: '1.0'
+paths:
+  /appointments:
+    get:
+      summary: Listar todos os agendamentos
+      responses:
+        '200':
+          description: Lista de agendamentos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Appointment'
+    post:
+      summary: Criar um novo agendamento
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Appointment'
+      responses:
+        '201':
+          description: Agendamento criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Appointment'
+  /appointments/{id}:
+    get:
+      summary: Obter um agendamento pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Agendamento encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Appointment'
+        '404':
+          description: Agendamento não encontrado
+    put:
+      summary: Atualizar um agendamento pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Appointment'
+      responses:
+        '200':
+          description: Agendamento atualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Appointment'
+        '404':
+          description: Agendamento não encontrado
+    delete:
+      summary: Excluir um agendamento pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Agendamento excluído
+        '404':
+          description: Agendamento não encontrado
+components:
+  schemas:
+    Appointment:
+      type: object
+      properties:
+        id:
+          type: integer
+        customer_name:
+          type: string
+        appointment_date:
+          type: string
+          format: date
+        appointment_time:
+          type: string
+          format: time
+        attendant_name:
+          type: string
+        customer_id:
+          type: integer
+        attendant_id:
+          type: integer
+    
