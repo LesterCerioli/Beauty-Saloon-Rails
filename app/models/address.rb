@@ -4,10 +4,10 @@ class Address < ApplicationRecord
   belongs_to :state
 
   def state_name
-    state.name if state
+    state.state_namename if state
   end
 
   def city_name
-    city.name if city
+    city.city_name if city
   end
 end
