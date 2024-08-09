@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2024-08-08
+  end_date: 2024-08-08
+  active: false
+  saloon: one
+
+two:
+  start_date: 2024-08-08
+  end_date: 2024-08-08
+  active: false
+  saloon: two

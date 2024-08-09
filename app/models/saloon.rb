@@ -4,16 +4,17 @@ class Saloon < ApplicationRecord
   has_many :customers
 
   
-  validates :razao_social, presence: true
-  validates :nome_salao, presence: true
+  validates :legal_name, presence: true
+  validates :saloon_name, presence: true
   validates :cnpj, presence: true, uniqueness: true, format: { with: /\A\d{11}\z/, message: "deve conter 11 dígitos" }
+  validates :telephone_number, presence: true
   
   def full_address
-    address.endereco_completo if address
+    address.full_address if address
   end
 
   def address_number
-    address.numero if address
+    address.address_number if address
   end
 
   def address_complement
@@ -21,7 +22,7 @@ class Saloon < ApplicationRecord
   end
   
   def state_name
-    state.name if state
+    state.state_name if state
   end
 
   def city_name
